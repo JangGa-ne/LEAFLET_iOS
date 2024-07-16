@@ -53,36 +53,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         print("알림 받음 userNotificationCenter", userInfo)
         
-        push_type = userInfo["type"] as? String ?? ""
-        segue_type = userInfo["segue"] as? String ?? ""
-        
-        if push_type == "member_register", let delegate = WaitingVCdelegate {
-            /// WaitingListener 처리
-        }
-        if let delegate = NoticeVCdelegate {
-            delegate.loadingData()
-        }
-        if let delegate = ReHomeVCdelegate {
-            delegate.noticeDot_v.isHidden = false
-        }
-        if let delegate = ReGoodsVCdelegate {
-            delegate.noticeDot_v.isHidden = false
-        }
-//        if let delegate = WhChatVCdelegate {
-//            delegate.loadingData()
-//        }
-        if let delegate = ReMyPageVCdelegate {
-            delegate.noticeDot_v.isHidden = false
-        }
-        if let delegate = WhHomeVCdelegate {
-            delegate.noticeDot_v.isHidden = false
-        }
-        
-        if WhChatVCdelegate == nil {
-            completionHandler([.alert, .sound, .badge])
-        } else {
-            completionHandler([])
-        }
+        completionHandler([.alert, .sound, .badge])
     }
     
     // PUSH(포그라운드) 누름
@@ -92,25 +63,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         Messaging.messaging().appDidReceiveMessage(userInfo)
         
         print("알림 누름 userNotificationCenter", userInfo)
-        
-        push_type = userInfo["type"] as? String ?? ""
-        segue_type = userInfo["segue"] as? String ?? ""
-        /// 로그인 정보 확인
-//        if MemberObject.member_id == "", MemberObject.member_pw == "" {
-//            if var window = UIApplication.shared.keyWindow?.rootViewController {
-//                while let presentedViewController = window.presentedViewController {
-//                    window = presentedViewController
-//                }; window.customAlert(message: "로그인을 해주세요.", time: 1)
-//            }
-//        }
-        
-        if push_type == "member_register", let delegate = WaitingVCdelegate {
-            /// WaitingListener 처리
-        } else if StoreObject.store_type == "retailseller", let delegate = ReMainTBCdelegate {
-            delegate.segueViewController(identifier: "NoticeVC")
-        } else if StoreObject.store_type == "wholesales", let delegate = WhHomeVCdelegate {
-            delegate.segueViewController(identifier: push_type == "chats" ? "WhChatVC" : "NoticeVC")
-        }
         
         completionHandler()
     }

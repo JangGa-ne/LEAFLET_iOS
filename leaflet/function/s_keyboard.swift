@@ -22,11 +22,8 @@ extension UIViewController: UITextFieldDelegate {
         let rect = (s! as AnyObject).cgRectValue
 
         let keyboardFrameEnd = view!.convert(rect!, to: nil)
-        if let delegate = ReMainTBCdelegate, delegate.selectedIndex == 2 { // 챗봇
-            view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: keyboardFrameEnd.origin.y+50)
-        } else {
-            view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: keyboardFrameEnd.origin.y)
-        }; view.layoutIfNeeded()
+        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: keyboardFrameEnd.origin.y)
+        view.layoutIfNeeded()
     }
     
 /// 키보드 사라짐
