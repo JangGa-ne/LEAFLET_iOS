@@ -81,13 +81,35 @@ extension UIViewController: UIViewControllerTransitioningDelegate {
     static let transition: animationSegue = animationSegue()
 }
 
-//extension  {
-//    
-//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        UIViewController.transition.presenting = true; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationBottom = true; return UIViewController.transition
-//    }
-//    
-//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        UIViewController.transition.presenting = false; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationBottom = true; return UIViewController.transition
-//    }
-//}
+extension SignUpMemberVC {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        UIViewController.transition.presenting = true; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationBottom = true; return UIViewController.transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        UIViewController.transition.presenting = false; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationBottom = true; return UIViewController.transition
+    }
+}
+
+extension SignUpRegisterVC {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        UIViewController.transition.presenting = true; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationRight = true; return UIViewController.transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        UIViewController.transition.presenting = false; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationRight = true; return UIViewController.transition
+    }
+}
+
+extension WhOrderBatchVC {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        UIViewController.transition.presenting = true; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationBottom = true; return UIViewController.transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        UIViewController.transition.presenting = false; UIViewController.transition.animationTime = 0.2; UIViewController.transition.animationBottom = true; return UIViewController.transition
+    }
+}
