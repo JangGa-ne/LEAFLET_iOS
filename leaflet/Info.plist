@@ -9,6 +9,12 @@
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>GmarketSansBold.otf</string>
+		<string>GmarketSansLight.otf</string>
+		<string>GmarketSansMedium.otf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

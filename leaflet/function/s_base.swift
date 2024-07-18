@@ -32,6 +32,24 @@ extension UIViewController {
         
         memoryCheck(delete: true)
     }
+    
+    func checkUserInterfaceStyle() {
+        if traitCollection.userInterfaceStyle == .dark {
+            if let delegate = StoreDetailVCdelegate {
+                delegate.back_btn.setImage(UIImage(named: "left_w"), for: .normal)
+                ([delegate.scrap_btn, delegate.call_btn, delegate.info_btn] as [UIButton]).enumerated().forEach { i, btn in
+                    btn.setImage(UIImage(named: ["scrap_w", "call_w", "info_w"][i] ?? ""), for: .normal)
+                }
+            }
+        } else {
+            if let delegate = StoreDetailVCdelegate {
+                delegate.back_btn.setImage(UIImage(named: "left"), for: .normal)
+                ([delegate.scrap_btn, delegate.call_btn, delegate.info_btn] as [UIButton]).enumerated().forEach { i, btn in
+                    btn.setImage(UIImage(named: ["scrap", "call", "info"][i] ?? ""), for: .normal)
+                }
+            }
+        }
+    }
 }
 
 extension UITableViewCell {

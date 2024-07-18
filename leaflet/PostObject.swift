@@ -7,6 +7,24 @@
 
 import UIKit
 
+let category_name: [String] = ["맛집", "카페", "주점", "문화", "놀이", "풀빌라펜션", "대관대여", "뷰티미용", "키즈존", "액티비티", "애견", "운동", "호텔", "행사"]
+let category_img: [String: String] = [
+    "놀이": "cate_play",
+    "대관대여": "cate_rental",
+    "맛집": "cate_restaurant",
+    "문화": "cate_culture",
+    "뷰티미용": "cate_beauty",
+    "애견": "cate_dog",
+    "액티비티": "cate_activity",
+    "운동": "cate_exercise",
+    "주점": "cate_pub",
+    "카페": "cate_cafe",
+    "키즈존": "cate_kidszone",
+    "풀빌라펜션": "cate_pension",
+    "행사": "cate_event",
+    "호텔": "cate_hotel",
+]
+
 class StoreData {
     
     var store_category: String = ""
