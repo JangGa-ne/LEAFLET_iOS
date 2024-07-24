@@ -101,7 +101,7 @@ class StoreDetailVC: UIViewController {
         if #available(iOS 15, *) { tableView.sectionHeaderTopPadding = .zero }
         tableView.delegate = self; tableView.dataSource = self
         
-        tableView_height.constant = CGFloat(tableView.numberOfSections*30)+200+CGFloat(10*90)+10
+        tableView_height.constant = CGFloat(tableView.numberOfSections*30)+200+CGFloat(10*100)
     }
     
     @objc func top_btn(_ sender: UIButton) {
