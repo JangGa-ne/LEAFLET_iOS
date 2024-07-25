@@ -79,6 +79,8 @@ class StoreDetailVC: UIViewController {
     @IBOutlet weak var call_btn: UIButton!
     @IBOutlet weak var info_btn: UIButton!
     
+    @IBOutlet weak var storeEdit_btn: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableView_height: NSLayoutConstraint!
     
@@ -95,6 +97,8 @@ class StoreDetailVC: UIViewController {
         ([scrap_btn, call_btn, info_btn] as [UIButton]).enumerated().forEach { i, btn in
             btn.tag = i; btn.addTarget(self, action: #selector(top_btn(_:)), for: .touchUpInside)
         }
+        
+        storeEdit_btn.addTarget(self, action: #selector(storeEdit_btn(_:)), for: .touchUpInside)
         
         tableView.separatorStyle = .none
         tableView.contentInset = .zero
@@ -117,10 +121,19 @@ class StoreDetailVC: UIViewController {
         }
     }
     
+    @objc func storeEdit_btn(_ sender: UIButton) {
+        
+        let segue = storyboard?.instantiateViewController(withIdentifier: "StoreUploadVC") as! StoreUploadVC
+        
+        navigationController?.pushViewController(segue, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setBackSwipeGesture(true)
+        
+        StoreUploadVCdelegate = nil
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
