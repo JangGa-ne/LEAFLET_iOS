@@ -1674,6 +1674,106 @@
             </objects>
             <point key="canvasLocation" x="2644" y="232"/>
         </scene>
+        <!--TimeVC-->
+        <scene sceneID="d1G-Ho-hwi">
+            <objects>
+                <viewController storyboardIdentifier="TimeVC" id="NVf-ma-EMl" customClass="TimeVC" customModule="leaflet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5to-Bb-NN5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N87-gA-BcK">
+                                <rect key="frame" x="6" y="420" width="381" height="426"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qrs-Ci-sxU">
+                                        <rect key="frame" x="30" y="30" width="321" height="366"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gic-4F-AC2">
+                                                <rect key="frame" x="0.0" y="0.0" width="321" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="rzO-52-Fa6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Q9u-iQ-nze">
+                                                <rect key="frame" x="0.0" y="40" width="321" height="216"/>
+                                            </datePicker>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yKJ-D9-yq1">
+                                                <rect key="frame" x="0.0" y="266" width="321" height="100"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb0-bq-9lo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="GJa-z1-gft"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="확인">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGo-sz-z1x">
+                                                        <rect key="frame" x="0.0" y="50" width="321" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Y4f-bh-CPL"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="취소">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Qrs-Ci-sxU" secondAttribute="bottom" constant="30" id="E7c-7H-byY"/>
+                                    <constraint firstItem="Qrs-Ci-sxU" firstAttribute="leading" secondItem="N87-gA-BcK" secondAttribute="leading" constant="30" id="FT0-qm-PBf"/>
+                                    <constraint firstItem="Qrs-Ci-sxU" firstAttribute="top" secondItem="N87-gA-BcK" secondAttribute="top" constant="30" id="RQo-pE-YFL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qrs-Ci-sxU" secondAttribute="trailing" constant="30" id="lMz-4h-jvx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5sn-sX-LBE"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5sn-sX-LBE" firstAttribute="trailing" secondItem="N87-gA-BcK" secondAttribute="trailing" constant="6" id="NFl-fm-R7h"/>
+                            <constraint firstItem="N87-gA-BcK" firstAttribute="leading" secondItem="5sn-sX-LBE" secondAttribute="leading" constant="6" id="pqm-Jr-pKH"/>
+                            <constraint firstAttribute="bottom" secondItem="N87-gA-BcK" secondAttribute="bottom" constant="6" id="zy6-oV-ypD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="background" destination="N87-gA-BcK" id="7W8-KE-Ujn"/>
+                        <outlet property="cancel_btn" destination="pGo-sz-z1x" id="sx1-fh-YBn"/>
+                        <outlet property="submit_btn" destination="Jb0-bq-9lo" id="Ypt-rf-Z67"/>
+                        <outlet property="timePicker" destination="Q9u-iQ-nze" id="pNP-Tb-A00"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wcw-qH-uco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3291" y="4"/>
+        </scene>
         <!--Store InfoVC-->
         <scene sceneID="Y5a-9f-9eS">
             <objects>
@@ -2044,7 +2144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERh-qX-8jc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3294" y="4"/>
+            <point key="canvasLocation" x="3941" y="4"/>
         </scene>
     </scenes>
     <resources>

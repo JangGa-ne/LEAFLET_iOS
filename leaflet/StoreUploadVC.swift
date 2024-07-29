@@ -7,9 +7,11 @@
 
 import UIKit
 import ImageSlideshow
+import PanModal
 
 class StoreUploadTC: UITableViewCell {
     
+    var indexpath_row: Int = 0
     var delegate: StoreUploadVC = StoreUploadVC()
     
     @IBOutlet weak var day_label: UILabel!
@@ -21,6 +23,13 @@ class StoreUploadTC: UITableViewCell {
     @IBOutlet weak var menuPrice_tf: UITextField!
     @IBOutlet weak var menuContent_tf: UITextField!
     @IBOutlet weak var menuImage_btn: UIButton!
+    
+    @objc func time_btn(_ sender: UIButton) {
+        
+        let segue = delegate.storyboard?.instantiateViewController(withIdentifier: "TimeVC") as! TimeVC
+        segue.StoreUploadTCdelegate = self
+        delegate.presentPanModal(segue)
+    }
 }
 
 class StoreUploadVC: UIViewController {
@@ -100,9 +109,12 @@ extension StoreUploadVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "StoreUploadTC1", for: indexPath) as! StoreUploadTC
+            cell.indexpath_row = indexPath.row
             cell.delegate = self
             
             cell.day_label.text = ["월", "화", "수", "목", "금", "토", "일"][indexPath.row]
+            cell.openTime_btn.tag = indexPath.row; cell.openTime_btn.addTarget(cell, action: #selector(cell.time_btn(_:)), for: .touchUpInside)
+            cell.closeTime_btn.tag = indexPath.row; cell.closeTime_btn.addTarget(cell, action: #selector(cell.time_btn(_:)), for: .touchUpInside)
             
             return cell
         case 1:
