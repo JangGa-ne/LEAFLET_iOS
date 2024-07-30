@@ -3,16 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1CC5D911DEEE86F92EF9C14D /* Pods_leaflet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9D138ED23E308BD23134EC /* Pods_leaflet.framework */; };
 		3F2F8B072C4E24EB0066A5DF /* StoreInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F8B062C4E24EB0066A5DF /* StoreInfoVC.swift */; };
 		3F2F8B092C4E2D910066A5DF /* BasketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F8B082C4E2D910066A5DF /* BasketVC.swift */; };
-		3F3D6F872C48D82C004FFEDE /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F3D6F842C48D82C004FFEDE /* GmarketSansBold.otf */; };
-		3F3D6F882C48D82C004FFEDE /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F3D6F852C48D82C004FFEDE /* GmarketSansLight.otf */; };
-		3F3D6F892C48D82C004FFEDE /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F3D6F862C48D82C004FFEDE /* GmarketSansMedium.otf */; };
+		3F32D6092C588B3800AC6775 /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0B27322C588A5900D6C889 /* GmarketSansMedium.otf */; };
+		3F32D60A2C588B3C00AC6775 /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0B27342C588A5A00D6C889 /* GmarketSansLight.otf */; };
+		3F34B9E62C588C59009B505F /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0B27332C588A5900D6C889 /* GmarketSansBold.otf */; };
+		3F34B9E72C58A1B5009B505F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F415E322C465EC300773588 /* Main.storyboard */; };
 		3F415E2D2C465EC300773588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F415E2C2C465EC300773588 /* AppDelegate.swift */; };
 		3F415E342C465EC300773588 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3F415E332C465EC300773588 /* Base */; };
 		3F415E362C465EC500773588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F415E352C465EC500773588 /* Assets.xcassets */; };
@@ -43,14 +44,15 @@
 		3FBCBCB02C466C5900320D73 /* s_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCBCA12C466C5900320D73 /* s_time.swift */; };
 		3FBCBCB12C466C5900320D73 /* s_vcDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCBCA22C466C5900320D73 /* s_vcDelegate.swift */; };
 		3FBCBCB22C466C5900320D73 /* s_vcNavigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCBCA32C466C5900320D73 /* s_vcNavigate.swift */; };
+		3FD264FB2C58C57000C2A5F3 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD264FA2C58C57000C2A5F3 /* CategoryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F0B27322C588A5900D6C889 /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansMedium.otf; sourceTree = "<group>"; };
+		3F0B27332C588A5900D6C889 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
+		3F0B27342C588A5A00D6C889 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
 		3F2F8B062C4E24EB0066A5DF /* StoreInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoVC.swift; sourceTree = "<group>"; };
 		3F2F8B082C4E2D910066A5DF /* BasketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketVC.swift; sourceTree = "<group>"; };
-		3F3D6F842C48D82C004FFEDE /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
-		3F3D6F852C48D82C004FFEDE /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
-		3F3D6F862C48D82C004FFEDE /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansMedium.otf; sourceTree = "<group>"; };
 		3F415E292C465EC300773588 /* leaflet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leaflet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F415E2C2C465EC300773588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F415E332C465EC300773588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		3FBCBCA12C466C5900320D73 /* s_time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = s_time.swift; sourceTree = "<group>"; };
 		3FBCBCA22C466C5900320D73 /* s_vcDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = s_vcDelegate.swift; sourceTree = "<group>"; };
 		3FBCBCA32C466C5900320D73 /* s_vcNavigate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = s_vcNavigate.swift; sourceTree = "<group>"; };
+		3FD264FA2C58C57000C2A5F3 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		9E9D138ED23E308BD23134EC /* Pods_leaflet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leaflet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DAE846682C64ECF44EB558 /* Pods-leaflet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leaflet.debug.xcconfig"; path = "Target Support Files/Pods-leaflet/Pods-leaflet.debug.xcconfig"; sourceTree = "<group>"; };
 		D71ACC7E9BBECB50FBC369F5 /* Pods-leaflet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leaflet.release.xcconfig"; path = "Target Support Files/Pods-leaflet/Pods-leaflet.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,14 +104,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F3D6F7A2C48D7F2004FFEDE /* font */ = {
+		3F0B27302C5889DA00D6C889 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				3F3D6F842C48D82C004FFEDE /* GmarketSansBold.otf */,
-				3F3D6F852C48D82C004FFEDE /* GmarketSansLight.otf */,
-				3F3D6F862C48D82C004FFEDE /* GmarketSansMedium.otf */,
+				3F415E802C465F3700773588 /* SplashVC.swift */,
+				3F415E7E2C465F3700773588 /* SignInVC.swift */,
+				3F415E7F2C465F3700773588 /* HomeVC.swift */,
+				3F987F262C47C00B00E07F8C /* StoreDetailVC.swift */,
+				3F2F8B062C4E24EB0066A5DF /* StoreInfoVC.swift */,
+				3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */,
+				3F47837B2C57693000EB0611 /* TimeVC.swift */,
+				3FD264FA2C58C57000C2A5F3 /* CategoryVC.swift */,
+				3F2F8B082C4E2D910066A5DF /* BasketVC.swift */,
+				3F415E7D2C465F3700773588 /* PostObject.swift */,
+				3F415E812C465F3700773588 /* PostRequest.swift */,
+				3F415E2C2C465EC300773588 /* AppDelegate.swift */,
 			);
-			path = font;
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		3F0B27312C588A4D00D6C889 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3F0B27332C588A5900D6C889 /* GmarketSansBold.otf */,
+				3F0B27342C588A5A00D6C889 /* GmarketSansLight.otf */,
+				3F0B27322C588A5900D6C889 /* GmarketSansMedium.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		3F415E202C465EC300773588 = {
@@ -134,23 +156,13 @@
 			children = (
 				3F415E872C46630300773588 /* leaflet.entitlements */,
 				3F415E7B2C465F2A00773588 /* GoogleService-Info.plist */,
-				3F415E2C2C465EC300773588 /* AppDelegate.swift */,
+				3F0B27312C588A4D00D6C889 /* Fonts */,
+				3F987F212C47BFF700E07F8C /* customView */,
+				3FBCBCA42C466C5900320D73 /* function */,
+				3F0B27302C5889DA00D6C889 /* viewController */,
 				3F415E322C465EC300773588 /* Main.storyboard */,
 				3F415E352C465EC500773588 /* Assets.xcassets */,
 				3F415E3A2C465EC500773588 /* Info.plist */,
-				3F3D6F7A2C48D7F2004FFEDE /* font */,
-				3F987F212C47BFF700E07F8C /* customView */,
-				3FBCBCA42C466C5900320D73 /* function */,
-				3F415E802C465F3700773588 /* SplashVC.swift */,
-				3F415E7E2C465F3700773588 /* SignInVC.swift */,
-				3F415E7F2C465F3700773588 /* HomeVC.swift */,
-				3F987F262C47C00B00E07F8C /* StoreDetailVC.swift */,
-				3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */,
-				3F47837B2C57693000EB0611 /* TimeVC.swift */,
-				3F2F8B062C4E24EB0066A5DF /* StoreInfoVC.swift */,
-				3F2F8B082C4E2D910066A5DF /* BasketVC.swift */,
-				3F415E7D2C465F3700773588 /* PostObject.swift */,
-				3F415E812C465F3700773588 /* PostRequest.swift */,
 			);
 			path = leaflet;
 			sourceTree = "<group>";
@@ -242,7 +254,7 @@
 				};
 			};
 			buildConfigurationList = 3F415E242C465EC300773588 /* Build configuration list for PBXProject "leaflet" */;
-			compatibilityVersion = "Xcode 15.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -264,12 +276,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F34B9E72C58A1B5009B505F /* Main.storyboard in Resources */,
+				3F32D60A2C588B3C00AC6775 /* GmarketSansLight.otf in Resources */,
+				3F34B9E62C588C59009B505F /* GmarketSansBold.otf in Resources */,
 				3F415E362C465EC500773588 /* Assets.xcassets in Resources */,
+				3F32D6092C588B3800AC6775 /* GmarketSansMedium.otf in Resources */,
 				3F415E342C465EC300773588 /* Base in Resources */,
-				3F3D6F882C48D82C004FFEDE /* GmarketSansLight.otf in Resources */,
-				3F3D6F892C48D82C004FFEDE /* GmarketSansMedium.otf in Resources */,
 				3F415E7C2C465F2B00773588 /* GoogleService-Info.plist in Resources */,
-				3F3D6F872C48D82C004FFEDE /* GmarketSansBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD264FB2C58C57000C2A5F3 /* CategoryVC.swift in Sources */,
 				3F8498982C4F8F630055FE27 /* StoreUploadVC.swift in Sources */,
 				3F415E842C465F3800773588 /* HomeVC.swift in Sources */,
 				3F415E832C465F3800773588 /* SignInVC.swift in Sources */,
@@ -420,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -477,7 +491,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -500,6 +514,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = leaflet/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 찍으려면, 카메라 권한을 허용해 주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "첨부(프로필, 매장대표사진, 썸네일 등) 해야하는 이미지를 가져오려면, 사진 접근 권한을 허용해 주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "첨부(프로필, 매장대표사진, 썸네일 등) 해야하는 이미지를 가져오려면, 사진 접근 권한을 허용해 주세요.";
@@ -537,6 +552,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = leaflet/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "사진을 찍으려면, 카메라 권한을 허용해 주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "첨부(프로필, 매장대표사진, 썸네일 등) 해야하는 이미지를 가져오려면, 사진 접근 권한을 허용해 주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "첨부(프로필, 매장대표사진, 썸네일 등) 해야하는 이미지를 가져오려면, 사진 접근 권한을 허용해 주세요.";

@@ -12,8 +12,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>GmarketSansBold.otf</string>
-		<string>GmarketSansLight.otf</string>
 		<string>GmarketSansMedium.otf</string>
+		<string>GmarketSansLight.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
