@@ -26,7 +26,12 @@ class SplashVC: UIViewController {
         
         SplashVCdelegate = self
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+        dispatchGroup.enter()
+        requestGetStore(limit: 10) { state in
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
             self.segueViewController(identifier: "HomeVC")
         }
     }

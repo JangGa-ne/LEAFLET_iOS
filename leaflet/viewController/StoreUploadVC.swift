@@ -65,6 +65,7 @@ class StoreUploadVC: UIViewController {
         
         setImageSlideShew(imageView: storeSub_iss, imageUrls: StoreObject.img_store_sub, completionHandler: nil)
         storeSub_iss.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(store_img(_:))))
+        storeSub_iss_ratio.constant = UIApplication.shared.statusBarFrame.height
         roundedView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         roundedView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(store_img(_:))))
         setKingfisher(imageView: storeMain_img, imageUrl: StoreObject.img_store_main, cornerRadius: 47)

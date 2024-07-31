@@ -48,30 +48,30 @@ class StoreData {
     var waiting_step: Int = 0
     
     var upload_file: [String: [(file_name: String, file_data: Data, file_size: Int)]] = [:]
+}
+
+func setStore(storeDict: [String: Any]) -> StoreData {
     
-    func setStore(storeDict: [String: Any]) -> StoreData {
-        
-        let storeValue: StoreData = StoreData()
-        storeValue.store_category = storeDict["store_category"] as? String ?? ""
-        storeValue.store_cash = storeDict["store_cash"] as? Int ?? 0
-        storeValue.store_color = storeDict["store_color"] as? String ?? ""
-        storeValue.store_id = storeDict["store_id"] as? String ?? ""
-        storeValue.store_pw = storeDict["store_pw"] as? String ?? ""
-        storeValue.store_tag = storeDict["store_tag"] as? [String] ?? []
-        storeValue.store_name = storeDict["store_name"] as? String ?? ""
-        storeValue.store_tel = storeDict["store_tel"] as? String ?? ""
-        storeValue.store_reg_num = storeDict["store_reg_num"] as? String ?? ""
-        storeValue.store_opening = storeDict["store_opening"] as? String ?? ""
-        storeValue.store_address = storeDict["store_address"] as? String ?? ""
-        storeValue.store_lat = storeDict["store_lat"] as? Double ?? 0.0
-        storeValue.store_lng = storeDict["store_lng"] as? Double ?? 0.0
-        storeValue.owner_name = storeDict["owner_name"] as? String ?? ""
-        storeValue.img_store_main = storeDict["img_store_main"] as? String ?? ""
-        storeValue.img_store_sub = storeDict["img_store_sub"] as? [String] ?? []
-        storeValue.img_store_reg = storeDict["img_store_reg"] as? String ?? ""
-        storeValue.manager_name = storeDict["manager_name"] as? String ?? ""
-        storeValue.waiting_step = storeDict["waiting_step"] as? Int ?? 0
-        
-        return storeValue
-    }
+    let storeValue: StoreData = StoreData()
+    storeValue.store_category = storeDict["store_category"] as? String ?? ""
+    storeValue.store_cash = storeDict["store_cash"] as? Int ?? 0
+    storeValue.store_color = storeDict["store_color"] as? String ?? ""
+    storeValue.store_id = storeDict["store_id"] as? String ?? ""
+    storeValue.store_pw = storeDict["store_pw"] as? String ?? ""
+    storeValue.store_tag = storeDict["store_tag"] as? [String] ?? []
+    storeValue.store_name = storeDict["store_name"] as? String ?? ""
+    storeValue.store_tel = storeDict["store_tel"] as? String ?? ""
+    storeValue.store_reg_num = storeDict["store_reg_num"] as? String ?? ""
+    storeValue.store_opening = storeDict["store_opening"] as? String ?? ""
+    storeValue.store_address = storeDict["store_address"] as? String ?? ""
+    storeValue.store_lat = storeDict["store_lat"] as? Double ?? 0.0
+    storeValue.store_lng = storeDict["store_lng"] as? Double ?? 0.0
+    storeValue.owner_name = storeDict["owner_name"] as? String ?? ""
+    storeValue.img_store_main = storeDict["img_store_main"] as? String ?? ""
+    storeValue.img_store_sub = storeDict["img_store_sub"] as? [String] ?? []
+    storeValue.img_store_reg = storeDict["img_store_reg"] as? String ?? ""
+    storeValue.manager_name = storeDict["manager_name"] as? String ?? ""
+    storeValue.waiting_step = storeDict["waiting_step"] as? Int ?? 0
+    
+    return storeValue
 }

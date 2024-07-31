@@ -9,11 +9,21 @@ import UIKit
 import FirebaseFirestore
 //import FirebaseStorage
 
+var StoreArray: [StoreData] = []
 var StoreObject: StoreData = StoreData()
 
-func requestGetStore() {
+func requestGetStore(limit: Int = 10000, completionHandler: @escaping ((Int) -> Void)) {
     
-    
+    Firestore.firestore().collection("store").limit(to: limit).getDocuments { response, error in
+        if error == nil {
+            response?.documents.forEach { doc in
+                StoreArray.append(setStore(storeDict: doc.data()))
+            }; completionHandler(200)
+        } else {
+            print(error?.localizedDescription as Any)
+            completionHandler(500)
+        }
+    }
 }
 
 func requestRegisterStore(params: [String: Any], completionHandler: @escaping ((Int) -> Void)) {

@@ -18,6 +18,8 @@ class StoreDetailCC: UICollectionViewCell {
 
 class StoreDetailTC: UITableViewCell {
     
+    var delegate: StoreDetailVC = StoreDetailVC()
+    
     @IBOutlet weak var title_label: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -66,6 +68,8 @@ class StoreDetailVC: UIViewController {
     }
     
     let menu_section: [String] = ["대표메뉴", "신메뉴"]
+    var StoreObject: StoreData = StoreData()
+//    var MenuArray: [memu]
     
     @IBOutlet weak var back_btn: UIButton!
     @IBAction func back_btn(_ sender: UIButton) { navigationController?.popViewController(animated: true)}
@@ -74,6 +78,7 @@ class StoreDetailVC: UIViewController {
     @IBOutlet weak var storeSub_iss: ImageSlideshow!
     @IBOutlet weak var storeSub_iss_ratio: NSLayoutConstraint!
     @IBOutlet weak var roundedView: UIView!
+    @IBOutlet weak var storeMain_img: UIImageView!
     
     @IBOutlet weak var scrap_btn: UIButton!
     @IBOutlet weak var call_btn: UIButton!
@@ -90,9 +95,11 @@ class StoreDetailVC: UIViewController {
         StoreDetailVCdelegate = self
         checkUserInterfaceStyle()
         
+        setImageSlideShew(imageView: storeSub_iss, imageUrls: StoreObject.img_store_sub, completionHandler: nil)
         storeSub_iss_ratio.constant = UIApplication.shared.statusBarFrame.height
         roundedView.layer.cornerRadius = 15
         roundedView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        setKingfisher(imageView: storeMain_img, imageUrl: StoreObject.img_store_main, cornerRadius: 47)
         
         ([scrap_btn, call_btn, info_btn] as [UIButton]).enumerated().forEach { i, btn in
             btn.tag = i; btn.addTarget(self, action: #selector(top_btn(_:)), for: .touchUpInside)
@@ -120,7 +127,7 @@ class StoreDetailVC: UIViewController {
     @objc func storeEdit_btn(_ sender: UIButton) {
         
         let segue = storyboard?.instantiateViewController(withIdentifier: "StoreUploadVC") as! StoreUploadVC
-        
+        segue.StoreObject = StoreObject
         navigationController?.pushViewController(segue, animated: true)
     }
     
@@ -170,11 +177,13 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "StoreDetailTC1", for: indexPath) as! StoreDetailTC
+            cell.delegate = self
             cell.viewDidLoad()
             
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "StoreDetailTC2", for: indexPath) as! StoreDetailTC
+            cell.delegate = self
             
             return cell
         } else {

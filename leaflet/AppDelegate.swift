@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseMessaging
 import FirebaseFirestore
 
+let dispatchGroup = DispatchGroup()
 let dataCache = try? DataCache(name: "com.blink.leaflet")
 
 var fcm_id: String = ""

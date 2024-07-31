@@ -1048,6 +1048,7 @@
                         <outlet property="scrap_btn" destination="VDP-re-ujC" id="d7D-9l-Q7S"/>
                         <outlet property="scrollView" destination="IWj-qF-Eav" id="dzZ-pj-jMd"/>
                         <outlet property="storeEdit_btn" destination="CNk-49-Nbf" id="Ak1-tY-3tN"/>
+                        <outlet property="storeMain_img" destination="pAO-Pd-6Z0" id="R44-av-fyJ"/>
                         <outlet property="storeSub_iss" destination="L5m-ks-HpB" id="Dpv-cG-p1P"/>
                         <outlet property="storeSub_iss_ratio" destination="FJP-HZ-cWU" id="GRV-uF-yla"/>
                         <outlet property="tableView" destination="QXF-04-hwI" id="4wT-eF-d5k"/>
@@ -2296,10 +2297,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

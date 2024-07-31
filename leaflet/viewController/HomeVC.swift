@@ -45,10 +45,30 @@ extension HomeTC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if indexpath_section == 0, category_name.count > 0 {
             return category_name.count
-        } else if indexpath_section == 1 {
-            return 10
+        } else if indexpath_section == 1, StoreArray.count > 0 {
+            return StoreArray.count
         } else {
             return .zero
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? HomeCC else { return }
+        
+        if indexpath_section == 1 {
+            let data = StoreArray[indexPath.row]
+            setKingfisher(imageView: cell.storeMain_img, imageUrl: data.img_store_main, cornerRadius: 5)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? HomeCC else { return }
+        
+        if indexpath_section == 1 {
+            cancelKingfisher(imageView: cell.storeMain_img)
+            cell.removeFromSuperview()
         }
     }
     
@@ -66,7 +86,9 @@ extension HomeTC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             cell.category_img.image = UIImage(named: category_img[category_name[indexPath.row]] ?? "")
             cell.category_label.text = category_name[indexPath.row]
         } else if indexpath_section == 1 {
-            
+            let data = StoreArray[indexPath.row]
+            cell.storeName_label.text = data.store_name
+            cell.storeCategory_label.text = data.store_category
         }
         return cell
     }
@@ -76,7 +98,7 @@ extension HomeTC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             indexpath_row = indexPath.row
         } else if indexpath_section == 1 {
             let segue = delegate.storyboard?.instantiateViewController(withIdentifier: "StoreDetailVC") as! StoreDetailVC
-            
+            segue.StoreObject = StoreArray[indexPath.row]
             delegate.navigationController?.pushViewController(segue, animated: true)
         }; collectionView.reloadData()
     }
@@ -164,9 +186,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 0, category_name.count > 0 {
             return 1
-        } else if section == 1 {
+        } else if section == 1, StoreArray.count > 0 {
             return 1
         } else {
             return .zero

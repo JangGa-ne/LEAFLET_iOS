@@ -118,7 +118,6 @@
 				3F2F8B082C4E2D910066A5DF /* BasketVC.swift */,
 				3F415E7D2C465F3700773588 /* PostObject.swift */,
 				3F415E812C465F3700773588 /* PostRequest.swift */,
-				3F415E2C2C465EC300773588 /* AppDelegate.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -160,6 +159,7 @@
 				3F987F212C47BFF700E07F8C /* customView */,
 				3FBCBCA42C466C5900320D73 /* function */,
 				3F0B27302C5889DA00D6C889 /* viewController */,
+				3F415E2C2C465EC300773588 /* AppDelegate.swift */,
 				3F415E322C465EC300773588 /* Main.storyboard */,
 				3F415E352C465EC500773588 /* Assets.xcassets */,
 				3F415E3A2C465EC500773588 /* Info.plist */,

@@ -101,8 +101,13 @@ func setImageSlideShew(imageView: ImageSlideshow, imageUrls: [String], cornerRad
     imageView.contentScaleMode = contentMode
     
     let indicator = UIActivityIndicatorView(style: .gray)
-    indicator.frame = CGRect(x: imageView.bounds.midX-10, y: imageView.bounds.midY-10, width: 20, height: 20)
-    imageView.addSubview(indicator); indicator.startAnimating()
+    imageView.addSubview(indicator)
+    indicator.translatesAutoresizingMaskIntoConstraints = false
+    indicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
+    indicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
+    indicator.startAnimating()
+    
+    imageView.layoutSubviews()
     
     var inputs: [ImageSource] = []
     imageUrls.forEach { imageUrl in
@@ -110,14 +115,16 @@ func setImageSlideShew(imageView: ImageSlideshow, imageUrls: [String], cornerRad
     }
 
     imageUrls.enumerated().forEach { i, imageUrl in
-        guard let url = URL(string: imageUrl) else { return }
+        guard let url = URL(string: imageUrl) else { completionHandler?(); return }
         SDWebImageManager.shared.loadImage(with: url, options: [.highPriority, .retryFailed, .scaleDownLargeImages], context: [:], progress: nil) { (image, _, _, _, _, _) in
             if let image = image { inputs[i] = ImageSource(image: image) }
             DispatchQueue.main.async {
-                imageView.setImageInputs(inputs); indicator.stopAnimating(); indicator.removeFromSuperview()
+                imageView.setImageInputs(inputs); indicator.stopAnimating(); indicator.removeFromSuperview(); completionHandler?()
             }
         }
     }
+    
+    if imageUrls.count == 0 { indicator.stopAnimating(); indicator.removeFromSuperview(); completionHandler?() }
 }
 
 func preheatImages(urls: [URL]) {
