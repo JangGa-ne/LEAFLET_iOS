@@ -27,6 +27,11 @@ class SplashVC: UIViewController {
         SplashVCdelegate = self
         
         dispatchGroup.enter()
+        requestSignIn { state in
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
         requestGetStore(limit: 10) { state in
             dispatchGroup.leave()
         }

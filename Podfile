@@ -11,6 +11,7 @@ target 'leaflet' do
     pod 'FirebaseAuth'
     pod 'FirebaseMessaging'
     pod 'FirebaseFirestore'
+    pod 'FirebaseStorage'
     
     # restApi alamofire
     pod 'Alamofire', '5.1'

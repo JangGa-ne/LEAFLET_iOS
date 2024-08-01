@@ -26,7 +26,7 @@ class StoreDetailTC: UITableViewCell {
     
     @IBOutlet weak var menuName_label: UILabel!
     @IBOutlet weak var menuPrice_label: UILabel!
-    @IBOutlet weak var menuEtc_label: UILabel!
+    @IBOutlet weak var memuContent_label: UILabel!
     @IBOutlet weak var menu_img: UIImageView!
     
     func viewDidLoad() {
@@ -43,15 +43,34 @@ class StoreDetailTC: UITableViewCell {
 extension StoreDetailTC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if delegate.menu_top.count > 0 { return delegate.menu_top.count } else { return .zero }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? StoreDetailCC else { return }
+        
+        let data = delegate.menu_top[indexPath.row]
+        setKingfisher(imageView: cell.menu_img, imageUrl: data.img_menu)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? StoreDetailCC else { return }
+        
+        cancelKingfisher(imageView: cell.menu_img)
+        cell.removeFromSuperview()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let data = delegate.menu_top[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoreDetailCC", for: indexPath) as! StoreDetailCC
         
         cell.menu_img.layer.cornerRadius = 15
         cell.menu_img.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        cell.menuName_label.text = data.name
+        cell.menuPrice_label.text = numberFormat.string(from: data.price as NSNumber) ?? "0"
         
         return cell
     }
@@ -67,9 +86,11 @@ class StoreDetailVC: UIViewController {
         return .lightContent
     }
     
-    let menu_section: [String] = ["대표메뉴", "신메뉴"]
+    let section_name: [String] = ["대표메뉴", "전체메뉴"]
     var StoreObject: StoreData = StoreData()
-//    var MenuArray: [memu]
+    
+    var menu_top: [(top: Bool, id: String, name: String, price: Int, content: String, img_menu: String)] = []
+    var menu_normal: [(top: Bool, id: String, name: String, price: Int, content: String, img_menu: String)] = []
     
     @IBOutlet weak var back_btn: UIButton!
     @IBAction func back_btn(_ sender: UIButton) { navigationController?.popViewController(animated: true)}
@@ -79,6 +100,9 @@ class StoreDetailVC: UIViewController {
     @IBOutlet weak var storeSub_iss_ratio: NSLayoutConstraint!
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var storeMain_img: UIImageView!
+    
+    @IBOutlet weak var storeName_label: UILabel!
+    @IBOutlet weak var storeCategory_label: UILabel!
     
     @IBOutlet weak var scrap_btn: UIButton!
     @IBOutlet weak var call_btn: UIButton!
@@ -101,6 +125,9 @@ class StoreDetailVC: UIViewController {
         roundedView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         setKingfisher(imageView: storeMain_img, imageUrl: StoreObject.img_store_main, cornerRadius: 47)
         
+        storeName_label.text = StoreObject.store_name
+        storeCategory_label.text = StoreObject.store_category
+        
         ([scrap_btn, call_btn, info_btn] as [UIButton]).enumerated().forEach { i, btn in
             btn.tag = i; btn.addTarget(self, action: #selector(top_btn(_:)), for: .touchUpInside)
         }
@@ -113,6 +140,12 @@ class StoreDetailVC: UIViewController {
         tableView.delegate = self; tableView.dataSource = self
         
         tableView_height.constant = CGFloat(tableView.numberOfSections*30)+200+CGFloat(10*100)
+        
+        requestGetMenu(store_id: StoreObject.store_id) { object, state in
+            self.menu_top = object.menu.filter { $0.top == true }
+            self.menu_normal = object.menu
+            self.tableView.reloadData()
+        }
     }
     
     @objc func top_btn(_ sender: UIButton) {
@@ -149,13 +182,13 @@ class StoreDetailVC: UIViewController {
 extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if menu_section.count > 0 { return menu_section.count } else { return .zero }
+        if section_name.count > 0 { return section_name.count } else { return .zero }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreDetailTCT") as! StoreDetailTC
-        cell.title_label.text = menu_section[section]
+        cell.title_label.text = section_name[section]
         return cell
     }
     
@@ -164,12 +197,32 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 0, menu_top.count > 0 {
             return 1
-        } else if section == 1 {
-            return 10
+        } else if section == 1, menu_normal.count > 0 {
+            return menu_normal.count
         } else {
             return .zero
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? StoreDetailTC else { return }
+        
+        if indexPath.section == 1 {
+            let data = menu_normal[indexPath.row]
+            setKingfisher(imageView: cell.menu_img, imageUrl: data.img_menu, cornerRadius: 5)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? StoreDetailTC else { return }
+        
+        if indexPath.section == 1 {
+            cancelKingfisher(imageView: cell.menu_img)
+            cell.removeFromSuperview()
         }
     }
     
@@ -182,8 +235,14 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         } else if indexPath.section == 1 {
+            
+            let data = menu_normal[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "StoreDetailTC2", for: indexPath) as! StoreDetailTC
             cell.delegate = self
+            
+            cell.menuName_label.text = data.name
+            cell.menuPrice_label.text = numberFormat.string(from: data.price as NSNumber) ?? "0"
+            cell.memuContent_label.text = data.content
             
             return cell
         } else {

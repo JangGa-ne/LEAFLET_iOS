@@ -416,7 +416,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="450-yj-msL"/>
                                                                     <constraint firstItem="Ds7-js-jFJ" firstAttribute="centerY" secondItem="aJR-jS-iB1" secondAttribute="centerY" constant="-10" id="njO-Mf-5Y6"/>
@@ -613,13 +613,15 @@
                                                                     </stackView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNk-49-Nbf">
                                                                         <rect key="frame" x="0.0" y="200" width="353" height="30"/>
-                                                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="pg6-LS-7tM"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" title="매장 편집"/>
+                                                                        <state key="normal" title="매장 편집">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="5"/>
@@ -821,7 +823,7 @@
                                                                                                 </stackView>
                                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ft2-Xh-0wK">
                                                                                                     <rect key="frame" x="273" y="0.0" width="80" height="80.333333333333329"/>
-                                                                                                    <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                                                                     <constraints>
                                                                                                         <constraint firstAttribute="width" constant="80" id="JoT-EZ-bch"/>
                                                                                                         <constraint firstAttribute="width" secondItem="Ft2-Xh-0wK" secondAttribute="height" id="nD0-g3-Cfg"/>
@@ -855,7 +857,7 @@
                                                                                         </tableViewCellContentView>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <connections>
-                                                                                            <outlet property="menuEtc_label" destination="1oi-gu-PrN" id="1fz-Ju-W1Z"/>
+                                                                                            <outlet property="memuContent_label" destination="1oi-gu-PrN" id="1fz-Ju-W1Z"/>
                                                                                             <outlet property="menuName_label" destination="mJl-33-8ZV" id="wPv-ZL-mX7"/>
                                                                                             <outlet property="menuPrice_label" destination="Dln-5r-6Ro" id="7jo-1j-Dko"/>
                                                                                             <outlet property="menu_img" destination="Ft2-Xh-0wK" id="4iX-Ck-6jy"/>
@@ -1022,7 +1024,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6uj-4e-Dzt"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="91g-vv-Ems" firstAttribute="width" secondItem="qgE-tV-oeW" secondAttribute="width" id="1Zn-1l-PdA"/>
                             <constraint firstAttribute="bottom" secondItem="xox-UP-OaT" secondAttribute="bottom" id="1qd-HA-Fj2"/>
@@ -1047,8 +1049,10 @@
                         <outlet property="roundedView" destination="aJR-jS-iB1" id="umM-r6-uiO"/>
                         <outlet property="scrap_btn" destination="VDP-re-ujC" id="d7D-9l-Q7S"/>
                         <outlet property="scrollView" destination="IWj-qF-Eav" id="dzZ-pj-jMd"/>
+                        <outlet property="storeCategory_label" destination="U3l-vH-ktt" id="pWs-M2-JZA"/>
                         <outlet property="storeEdit_btn" destination="CNk-49-Nbf" id="Ak1-tY-3tN"/>
                         <outlet property="storeMain_img" destination="pAO-Pd-6Z0" id="R44-av-fyJ"/>
+                        <outlet property="storeName_label" destination="xcT-tN-ifB" id="RiH-Qj-XEi"/>
                         <outlet property="storeSub_iss" destination="L5m-ks-HpB" id="Dpv-cG-p1P"/>
                         <outlet property="storeSub_iss_ratio" destination="FJP-HZ-cWU" id="GRV-uF-yla"/>
                         <outlet property="tableView" destination="QXF-04-hwI" id="4wT-eF-d5k"/>
@@ -1115,7 +1119,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="sWX-24-ltJ" firstAttribute="centerY" secondItem="Ckt-ZD-BQ0" secondAttribute="centerY" constant="-10" id="2HE-ac-qBR"/>
                                                                     <constraint firstItem="sWX-24-ltJ" firstAttribute="centerX" secondItem="Ckt-ZD-BQ0" secondAttribute="centerX" id="J85-d1-pjS"/>
@@ -1358,7 +1362,7 @@
                                                                                                                     <subviews>
                                                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK2-C0-8xK">
                                                                                                                             <rect key="frame" x="0.0" y="0.0" width="43" height="44.333333333333336"/>
-                                                                                                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                                                                                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1373,7 +1377,7 @@
                                                                                                                         </button>
                                                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-QV-nVP">
                                                                                                                             <rect key="frame" x="52.999999999999993" y="0.0" width="86.333333333333314" height="44.333333333333336"/>
-                                                                                                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                                                                                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1388,7 +1392,7 @@
                                                                                                                         </button>
                                                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-NY-Raj">
                                                                                                                             <rect key="frame" x="149.33333333333331" y="0.0" width="86" height="44.333333333333336"/>
-                                                                                                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                                                                                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -1491,7 +1495,7 @@
                                                                                                         </stackView>
                                                                                                         <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaW-Qu-VaS">
                                                                                                             <rect key="frame" x="273" y="0.0" width="80" height="80"/>
-                                                                                                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                                                                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                                                                             <constraints>
                                                                                                                 <constraint firstAttribute="width" secondItem="UaW-Qu-VaS" secondAttribute="height" id="bt9-Fs-FPN"/>
                                                                                                                 <constraint firstAttribute="width" constant="80" id="iuM-6i-A4I"/>
@@ -1667,7 +1671,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vip-UF-TfM"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="N4T-jZ-836" firstAttribute="top" secondItem="Vip-UF-TfM" secondAttribute="top" id="1p2-GD-48f"/>
                             <constraint firstAttribute="bottom" secondItem="Ldb-o0-Gpx" secondAttribute="bottom" id="8qP-EW-MpY"/>
@@ -2290,6 +2294,9 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -2297,10 +2304,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

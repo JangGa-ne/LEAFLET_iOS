@@ -12,11 +12,25 @@ import FirebaseFirestore
 var StoreArray: [StoreData] = []
 var StoreObject: StoreData = StoreData()
 
+func requestSignIn(store_id: String = "test123", store_pw: String = "test123", completionHandler: @escaping ((Int) -> Void)) {
+    
+    Firestore.firestore().collection("store").whereField("store_id", isEqualTo: store_id).whereField("store_pw", isEqualTo: store_pw).getDocuments { responses, error in
+        if error == nil {
+            responses?.documents.forEach { doc in
+                StoreObject = setStore(storeDict: doc.data())
+            }; completionHandler(200)
+        } else {
+            print(error?.localizedDescription as Any)
+            completionHandler(500)
+        }
+    }
+}
+
 func requestGetStore(limit: Int = 10000, completionHandler: @escaping ((Int) -> Void)) {
     
-    Firestore.firestore().collection("store").limit(to: limit).getDocuments { response, error in
+    Firestore.firestore().collection("store").limit(to: limit).getDocuments { responses, error in
         if error == nil {
-            response?.documents.forEach { doc in
+            responses?.documents.forEach { doc in
                 StoreArray.append(setStore(storeDict: doc.data()))
             }; completionHandler(200)
         } else {
@@ -33,7 +47,22 @@ func requestRegisterStore(params: [String: Any], completionHandler: @escaping ((
     }
 }
 
-func requestMenu() {
+func requestGetMenu(store_id: String, completionHandler: @escaping ((MenuData, Int) -> Void)) {
+    
+    var MenuObject: MenuData = MenuData()
+    
+    Firestore.firestore().collection("menu").document(store_id).getDocument { response, error in
+        if error == nil, let response = response {
+            MenuObject = setMenu(menuDict: response.data() ?? [:])
+            completionHandler(MenuObject, 200)
+        } else {
+            print(error?.localizedDescription as Any)
+            completionHandler(MenuObject, 500)
+        }
+    }
+}
+
+func requestPutMenu() {
     
     let params: [String: Any] = [
         "menu_type": [

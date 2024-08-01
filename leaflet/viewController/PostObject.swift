@@ -75,3 +75,29 @@ func setStore(storeDict: [String: Any]) -> StoreData {
     
     return storeValue
 }
+
+class MenuData {
+    
+    var store_id: String = ""
+    var store_name: String = ""
+    var menu: [(top: Bool, id: String, name: String, price: Int, content: String, img_menu: String)] = []
+}
+
+func setMenu(menuDict: [String: Any]) -> MenuData {
+    
+    let menuValue: MenuData = MenuData()
+    menuValue.store_id = menuDict["store_id"] as? String ?? ""
+    menuValue.store_name = menuDict["store_name"] as? String ?? ""
+    (menuDict["menu"] as? Array<[String: Any]> ?? []).forEach { dict in
+        menuValue.menu.append((
+            top: dict["top"] as? Bool ?? false,
+            id: dict["id"] as? String ?? "",
+            name: dict["name"] as? String ?? "",
+            price: dict["price"] as? Int ?? 0,
+            content: dict["content"] as? String ?? "",
+            img_menu: dict["img_menu"] as? String ?? ""
+        ))
+    }
+    
+    return menuValue
+}
