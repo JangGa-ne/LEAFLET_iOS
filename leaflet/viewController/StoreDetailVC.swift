@@ -88,9 +88,8 @@ class StoreDetailVC: UIViewController {
     
     let section_name: [String] = ["대표메뉴", "전체메뉴"]
     var StoreObject: StoreData = StoreData()
-    
+    var MenuObject: MenuData = MenuData()
     var menu_top: [(top: Bool, id: String, name: String, price: Int, content: String, img_menu: String)] = []
-    var menu_normal: [(top: Bool, id: String, name: String, price: Int, content: String, img_menu: String)] = []
     
     @IBOutlet weak var back_btn: UIButton!
     @IBAction func back_btn(_ sender: UIButton) { navigationController?.popViewController(animated: true)}
@@ -142,8 +141,8 @@ class StoreDetailVC: UIViewController {
         tableView_height.constant = CGFloat(tableView.numberOfSections*30)+200+CGFloat(10*100)
         
         requestGetMenu(store_id: StoreObject.store_id) { object, state in
+            self.MenuObject.menu = object.menu
             self.menu_top = object.menu.filter { $0.top == true }
-            self.menu_normal = object.menu
             self.tableView.reloadData()
         }
     }
@@ -161,6 +160,7 @@ class StoreDetailVC: UIViewController {
         
         let segue = storyboard?.instantiateViewController(withIdentifier: "StoreUploadVC") as! StoreUploadVC
         segue.StoreObject = StoreObject
+        segue.MenuObject = MenuObject
         navigationController?.pushViewController(segue, animated: true)
     }
     
@@ -199,8 +199,8 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0, menu_top.count > 0 {
             return 1
-        } else if section == 1, menu_normal.count > 0 {
-            return menu_normal.count
+        } else if section == 1, MenuObject.menu.count > 0 {
+            return MenuObject.menu.count
         } else {
             return .zero
         }
@@ -211,8 +211,8 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = cell as? StoreDetailTC else { return }
         
         if indexPath.section == 1 {
-            let data = menu_normal[indexPath.row]
-            setKingfisher(imageView: cell.menu_img, imageUrl: data.img_menu, cornerRadius: 5)
+            let data = MenuObject.menu[indexPath.row]
+            setKingfisher(imageView: cell.menu_img, imageUrl: data.img_menu, cornerRadius: 10)
         }
     }
     
@@ -236,7 +236,7 @@ extension StoreDetailVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else if indexPath.section == 1 {
             
-            let data = menu_normal[indexPath.row]
+            let data = MenuObject.menu[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "StoreDetailTC2", for: indexPath) as! StoreDetailTC
             cell.delegate = self
             

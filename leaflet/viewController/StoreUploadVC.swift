@@ -36,7 +36,7 @@ class StoreUploadTC: UITableViewCell {
 class StoreUploadVC: UIViewController {
     
     var StoreObject: StoreData = StoreData()
-    var menu_data: [(menu_title: String, menu_price: Int, menu_content: String, img_menu: UIImage)] = []
+    var MenuObject: MenuData = MenuData()
     
     @IBAction func back_btn(_ sender: UIButton) { navigationController?.popViewController(animated: true) }
     
@@ -47,7 +47,7 @@ class StoreUploadVC: UIViewController {
     @IBOutlet weak var storeMain_img: UIImageView!
     
     @IBOutlet weak var storeName_tf: UITextField!
-    @IBOutlet weak var ceoName_tf: UITextField!
+    @IBOutlet weak var ownerName_tf: UITextField!
     @IBOutlet weak var storeRegNum_tf: UITextField!
     @IBOutlet weak var storeTel_tf: UITextField!
     @IBOutlet weak var storeAddress_tf: UITextField!
@@ -70,12 +70,29 @@ class StoreUploadVC: UIViewController {
         roundedView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(store_img(_:))))
         setKingfisher(imageView: storeMain_img, imageUrl: StoreObject.img_store_main, cornerRadius: 47)
         
+        storeName_tf.text = StoreObject.store_name
+        ownerName_tf.text = StoreObject.owner_name
+        storeRegNum_tf.text = StoreObject.store_reg_num
+        storeTel_tf.text = StoreObject.store_tel
+        storeAddress_tf.text = StoreObject.store_address
+        category_btn.setTitle(StoreObject.store_category, for: .normal)
         category_btn.addTarget(self, action: #selector(category_btn(_:)), for: .touchUpInside)
         
         tableView.separatorStyle = .none
         tableView.contentInset = .zero
         tableView.delegate = self; tableView.dataSource = self
-        tableView_height.constant = CGFloat(388+152*menu_data.count)
+        tableView_height.constant = CGFloat(388+152*MenuObject.menu.count)
+        
+        MenuObject.upload_img_menu.removeAll()
+        MenuObject.menu.forEach { _ in MenuObject.upload_img_menu.append((file_name: "", file_data: Data(), file_size: 0)) }
+        MenuObject.menu.enumerated().forEach { i, data in
+            imageUrlStringToData(from: data.img_menu) { mimeType, imgData in
+                DispatchQueue.main.async {
+                    self.MenuObject.upload_img_menu[i] = (file_name: "img_menu\(i).\((mimeTypes.filter { $0.value == mimeType }.map { $0.key }).first ?? "")", file_data: imgData ?? Data(), file_size: imgData?.count ?? 0)
+                    self.tableView.reloadRows(at: [IndexPath(row: i, section: 2)], with: .none)
+                }
+            }
+        }
         
         menuAdd_btn.addTarget(self, action: #selector(menuAdd_btn(_:)), for: .touchUpInside)
     }
@@ -109,9 +126,10 @@ class StoreUploadVC: UIViewController {
     @objc func menuAdd_btn(_ sender: UIButton) {
         
         tableView.beginUpdates()
-        menu_data.append((menu_title: "", menu_price: 0, menu_content: "", img_menu: UIImage()))
-        tableView.insertRows(at: [IndexPath(row: menu_data.count-1, section: 2)], with: .none)
-        tableView_height.constant = CGFloat(388+152*menu_data.count)
+        MenuObject.menu.append((top: false, id: "", name: "", price: 0, content: "", img_menu: ""))
+        MenuObject.upload_img_menu.append((file_name: "", file_data: Data(), file_size: 0))
+        tableView.insertRows(at: [IndexPath(row: MenuObject.menu.count-1, section: 2)], with: .none)
+        tableView_height.constant = CGFloat(388+152*MenuObject.menu.count)
         tableView.endUpdates()
         
         scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentSize.height)
@@ -135,10 +153,29 @@ extension StoreUploadVC: UITableViewDelegate, UITableViewDataSource {
             return 7
         } else if section == 1 {
             return 1
-        } else if section == 2, menu_data.count > 0 {
-            return menu_data.count
+        } else if section == 2, MenuObject.menu.count > 0, MenuObject.menu.count == MenuObject.upload_img_menu.count {
+            return MenuObject.menu.count
         } else {
             return .zero
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? StoreUploadTC else { return }
+        
+        if indexPath.section == 2 {
+            let data = MenuObject.upload_img_menu[indexPath.row]
+            cell.menuImage_btn.setImage(UIImage(data: data.file_data), for: .normal)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? StoreUploadTC else { return }
+        
+        if indexPath.section == 2 {
+            cell.removeFromSuperview()
         }
     }
     
@@ -158,17 +195,16 @@ extension StoreUploadVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return tableView.dequeueReusableCell(withIdentifier: "StoreUploadTC2", for: indexPath) as! StoreUploadTC
         case 2:
-            let data = menu_data[indexPath.row]
+            let data = MenuObject.menu[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "StoreUploadTC3", for: indexPath) as! StoreUploadTC
             cell.delegate = self
             
-            cell.menuName_tf.text = data.menu_title
-            cell.menuPrice_tf.text = (data.menu_price != 0) ? String(data.menu_price) : ""
-            cell.menuContent_tf.text = data.menu_content
+            cell.menuName_tf.text = data.name
+            cell.menuPrice_tf.text = (data.price != 0) ? String(data.price) : ""
+            cell.menuContent_tf.text = data.content
             ([cell.menuName_tf, cell.menuPrice_tf, cell.menuContent_tf] as [UITextField]).forEach { tf in
                 tf.tag = indexPath.row; tf.addTarget(self, action: #selector(menu_tf(_:)), for: .editingChanged)
             }
-            cell.menuImage_btn.setImage(data.img_menu, for: .normal)
             cell.menuImage_btn.imageView?.contentMode = .scaleAspectFill
             cell.menuImage_btn.tag = indexPath.row; cell.menuImage_btn.addTarget(self, action: #selector(menuImage_btn(_:)), for: .touchUpInside)
             
@@ -183,11 +219,11 @@ extension StoreUploadVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.cellForRow(at: IndexPath(row: sender.tag, section: 2)) as? StoreUploadTC else { return }
         
         if sender == cell.menuName_tf {
-            menu_data[sender.tag].menu_title = cell.menuName_tf.text!
+            MenuObject.menu[sender.tag].name = cell.menuName_tf.text!
         } else if sender == cell.menuPrice_tf {
-            menu_data[sender.tag].menu_price = Int(cell.menuPrice_tf.text!) ?? 0
+            MenuObject.menu[sender.tag].price = Int(cell.menuPrice_tf.text!) ?? 0
         } else if sender == cell.menuContent_tf {
-            menu_data[sender.tag].menu_content = cell.menuContent_tf.text!
+            MenuObject.menu[sender.tag].content = cell.menuContent_tf.text!
         }
     }
     
@@ -197,7 +233,7 @@ extension StoreUploadVC: UITableViewDelegate, UITableViewDataSource {
         
         setPhoto(max: 1) { photo in
             UIView.setAnimationsEnabled(false)
-            self.menu_data[sender.tag].img_menu = UIImage(data: photo[0].file_data) ?? UIImage()
+            self.MenuObject.upload_img_menu[sender.tag] = (file_name: "img_menu\(sender.tag).\(photo[0].file_name)", file_data: photo[0].file_data, file_size: photo[0].file_data.count)
             self.tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 2)], with: .none)
             UIView.setAnimationsEnabled(true)
         }

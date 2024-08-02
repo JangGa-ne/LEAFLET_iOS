@@ -42,9 +42,11 @@ func memoryCheck(delete: Bool = false) {
 
 func setKingfisher(imageView: UIImageView, imageUrl: String, placeholder: UIImage = UIImage(), cornerRadius: CGFloat = 0, contentMode: UIView.ContentMode = .scaleAspectFill, completion: (() -> Void)? = nil) {
     
-    imageView.layer.cornerRadius = cornerRadius
-    imageView.clipsToBounds = true
-    imageView.contentMode = contentMode
+    if cornerRadius != 0 {
+        imageView.layer.cornerRadius = cornerRadius
+        imageView.clipsToBounds = true
+        imageView.contentMode = contentMode
+    }
     
     let indicator = UIActivityIndicatorView(style: .gray)
     indicator.frame = CGRect(x: imageView.bounds.midX-10, y: imageView.bounds.midY-10, width: 20, height: 20)
@@ -254,6 +256,8 @@ func imageUrlStringToData(from urlString: String, completion: @escaping (String,
                 guard let imageData = data, error == nil else { completion("", nil); return }
                 completion(responseJson["contentType"] as? String ?? "", imageData)
             }.resume()
+        } else {
+            completion("", nil)
         }
     }
 }

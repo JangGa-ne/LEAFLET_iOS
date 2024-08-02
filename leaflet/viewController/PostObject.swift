@@ -76,16 +76,18 @@ func setStore(storeDict: [String: Any]) -> StoreData {
     return storeValue
 }
 
-class MenuData {
+struct MenuData {
     
     var store_id: String = ""
     var store_name: String = ""
     var menu: [(top: Bool, id: String, name: String, price: Int, content: String, img_menu: String)] = []
+    
+    var upload_img_menu: [(file_name: String, file_data: Data, file_size: Int)] = []
 }
 
 func setMenu(menuDict: [String: Any]) -> MenuData {
     
-    let menuValue: MenuData = MenuData()
+    var menuValue: MenuData = MenuData()
     menuValue.store_id = menuDict["store_id"] as? String ?? ""
     menuValue.store_name = menuDict["store_name"] as? String ?? ""
     (menuDict["menu"] as? Array<[String: Any]> ?? []).forEach { dict in
