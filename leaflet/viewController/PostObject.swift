@@ -27,6 +27,9 @@ let category_img: [String: String] = [
 
 class StoreData {
     
+    var count_scrap: Int = 0
+    var count_views: Int = 0
+    var count_review: Int = 0
     var store_category: String = ""
     var store_cash: Int = 0
     var store_color: String = ""
@@ -46,6 +49,7 @@ class StoreData {
     var img_store_reg: String = ""
     var manager_name: String = ""
     var waiting_step: Int = 0
+    var opening_hours: [OpeningHoursData] = []
     
     var upload_file: [String: [(file_name: String, file_data: Data, file_size: Int)]] = [:]
 }
@@ -53,6 +57,9 @@ class StoreData {
 func setStore(storeDict: [String: Any]) -> StoreData {
     
     let storeValue: StoreData = StoreData()
+    storeValue.count_scrap = storeDict["count_scrap"] as? Int ?? 0
+    storeValue.count_views = storeDict["count_views"] as? Int ?? 0
+    storeValue.count_review = storeDict["count_review"] as? Int ?? 0
     storeValue.store_category = storeDict["store_category"] as? String ?? ""
     storeValue.store_cash = storeDict["store_cash"] as? Int ?? 0
     storeValue.store_color = storeDict["store_color"] as? String ?? ""
@@ -72,8 +79,28 @@ func setStore(storeDict: [String: Any]) -> StoreData {
     storeValue.img_store_reg = storeDict["img_store_reg"] as? String ?? ""
     storeValue.manager_name = storeDict["manager_name"] as? String ?? ""
     storeValue.waiting_step = storeDict["waiting_step"] as? Int ?? 0
+    (storeDict["opening_hours"] as? Array<[String: Any]> ?? []).forEach { dict in
+        storeValue.opening_hours.append(setOpeningHours(openingHoursDict: dict))
+    }
     
     return storeValue
+}
+
+struct OpeningHoursData {
+    
+    var close_time: String = ""
+    var day_off: Bool = false
+    var open_time: String = ""
+}
+
+func setOpeningHours(openingHoursDict: [String: Any]) -> OpeningHoursData {
+    
+    var openingHoursValue: OpeningHoursData = OpeningHoursData()
+    openingHoursValue.close_time = openingHoursDict["close_time"] as? String ?? ""
+    openingHoursValue.day_off = openingHoursDict["day_off"] as? Bool ?? false
+    openingHoursValue.open_time = openingHoursDict["open_time"] as? String ?? ""
+    
+    return openingHoursValue
 }
 
 struct MenuData {

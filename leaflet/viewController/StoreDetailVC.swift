@@ -107,6 +107,10 @@ class StoreDetailVC: UIViewController {
     @IBOutlet weak var call_btn: UIButton!
     @IBOutlet weak var info_btn: UIButton!
     
+    @IBOutlet weak var countViews_label: UILabel!
+    @IBOutlet weak var countReview_label: UILabel!
+    @IBOutlet weak var countScrap_label: UILabel!
+    
     @IBOutlet weak var storeEdit_btn: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
@@ -131,6 +135,10 @@ class StoreDetailVC: UIViewController {
             btn.tag = i; btn.addTarget(self, action: #selector(top_btn(_:)), for: .touchUpInside)
         }
         
+        countViews_label.text = numberFormat.string(from: StoreObject.count_views as NSNumber) ?? "0"
+        countReview_label.text = numberFormat.string(from: StoreObject.count_review as NSNumber) ?? "0"
+        countScrap_label.text = numberFormat.string(from: StoreObject.count_scrap as NSNumber) ?? "0"
+        
         storeEdit_btn.addTarget(self, action: #selector(storeEdit_btn(_:)), for: .touchUpInside)
         
         tableView.separatorStyle = .none
@@ -138,12 +146,11 @@ class StoreDetailVC: UIViewController {
         if #available(iOS 15, *) { tableView.sectionHeaderTopPadding = .zero }
         tableView.delegate = self; tableView.dataSource = self
         
-        tableView_height.constant = CGFloat(tableView.numberOfSections*30)+200+CGFloat(10*100)
-        
         requestGetMenu(store_id: StoreObject.store_id) { object, state in
             self.MenuObject.menu = object.menu
             self.menu_top = object.menu.filter { $0.top == true }
             self.tableView.reloadData()
+            self.tableView_height.constant = CGFloat(self.tableView.numberOfSections*30)+200+CGFloat(self.MenuObject.menu.count*100)
         }
     }
     

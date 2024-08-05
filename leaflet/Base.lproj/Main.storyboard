@@ -539,7 +539,7 @@
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqX-EA-i6L">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqX-EA-i6L">
                                                                                         <rect key="frame" x="0.0" y="25" width="117" height="25"/>
                                                                                         <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="12"/>
                                                                                         <nil key="textColor"/>
@@ -566,7 +566,7 @@
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmB-FL-LNz">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmB-FL-LNz">
                                                                                         <rect key="frame" x="0.0" y="25" width="117" height="25"/>
                                                                                         <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="12"/>
                                                                                         <nil key="textColor"/>
@@ -593,7 +593,7 @@
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyQ-0o-P8E">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scrap" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyQ-0o-P8E">
                                                                                         <rect key="frame" x="0.0" y="25" width="117" height="25"/>
                                                                                         <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="12"/>
                                                                                         <nil key="textColor"/>
@@ -611,7 +611,7 @@
                                                                             <constraint firstItem="JaW-7Y-wAK" firstAttribute="width" secondItem="WY6-BF-H6a" secondAttribute="width" id="toS-T2-L2S"/>
                                                                         </constraints>
                                                                     </stackView>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNk-49-Nbf">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNk-49-Nbf">
                                                                         <rect key="frame" x="0.0" y="200" width="353" height="30"/>
                                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                                         <constraints>
@@ -1045,6 +1045,9 @@
                     <connections>
                         <outlet property="back_btn" destination="IBM-WH-71v" id="S0F-Cj-82U"/>
                         <outlet property="call_btn" destination="534-AP-UlJ" id="Okd-im-CYn"/>
+                        <outlet property="countReview_label" destination="QK9-Rb-vDm" id="SAc-Ee-XGu"/>
+                        <outlet property="countScrap_label" destination="aoj-P3-WoG" id="vPr-Bm-SoE"/>
+                        <outlet property="countViews_label" destination="1l8-v5-8cc" id="Phc-hL-dS7"/>
                         <outlet property="info_btn" destination="YJS-ZM-KnT" id="omp-dk-zCX"/>
                         <outlet property="roundedView" destination="aJR-jS-iB1" id="umM-r6-uiO"/>
                         <outlet property="scrap_btn" destination="VDP-re-ujC" id="d7D-9l-Q7S"/>
@@ -2295,7 +2298,7 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2304,10 +2307,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
