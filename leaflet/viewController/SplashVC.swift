@@ -37,7 +37,7 @@ class SplashVC: UIViewController {
         }
         
         dispatchGroup.notify(queue: .main) {
-            self.segueViewController(identifier: "HomeVC")
+            self.segueViewController(identifier: "MainVC")
         }
     }
     

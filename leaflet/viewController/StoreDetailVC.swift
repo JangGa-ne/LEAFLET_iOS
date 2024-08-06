@@ -7,6 +7,8 @@
 
 import UIKit
 import ImageSlideshow
+import FirebaseFirestore
+import MapKit
 
 class StoreDetailCC: UICollectionViewCell {
     
@@ -135,7 +137,10 @@ class StoreDetailVC: UIViewController {
             btn.tag = i; btn.addTarget(self, action: #selector(top_btn(_:)), for: .touchUpInside)
         }
         
-        countViews_label.text = numberFormat.string(from: StoreObject.count_views as NSNumber) ?? "0"
+        Firestore.firestore().collection("store").document(StoreObject.store_id).updateData(["count_views": StoreObject.count_views+1]) { _ in
+            self.StoreObject.count_views += 1
+            self.countViews_label.text = numberFormat.string(from: self.StoreObject.count_views as NSNumber) ?? "0"
+        }
         countReview_label.text = numberFormat.string(from: StoreObject.count_review as NSNumber) ?? "0"
         countScrap_label.text = numberFormat.string(from: StoreObject.count_scrap as NSNumber) ?? "0"
         
