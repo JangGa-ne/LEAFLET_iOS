@@ -12,7 +12,6 @@ target 'leaflet' do
     pod 'FirebaseMessaging'
     pod 'FirebaseFirestore'
     pod 'FirebaseStorage'
-    
     # restApi alamofire
     pod 'Alamofire', '5.1'
     
@@ -21,19 +20,14 @@ target 'leaflet' do
     
     # photo library
     pod 'BSImagePicker'
-
     # image slide
     pod 'ImageSlideshow/SDWebImage'
-    
     # async image
     pod 'Nuke'
     pod 'Kingfisher'
     
     # bottom sheet
     pod 'PanModal'
-
-    # slide side menu
-    pod 'SideMenu', '6.0'
     
     # calendar
     pod 'CVCalendar'

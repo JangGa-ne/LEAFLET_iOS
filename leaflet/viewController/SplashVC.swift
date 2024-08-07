@@ -26,19 +26,21 @@ class SplashVC: UIViewController {
         
         SplashVCdelegate = self
         
-        dispatchGroup.enter()
-        requestSignIn { state in
-            dispatchGroup.leave()
-        }
+//        dispatchGroup.enter()
+//        requestSignIn { state in
+//            dispatchGroup.leave()
+//        }
+//        
+//        dispatchGroup.enter()
+//        requestGetStore(limit: 10) { state in
+//            dispatchGroup.leave()
+//        }
+//        
+//        dispatchGroup.notify(queue: .main) {
+//            self.segueViewController(identifier: "MainVC")
+//        }
         
-        dispatchGroup.enter()
-        requestGetStore(limit: 10) { state in
-            dispatchGroup.leave()
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            self.segueViewController(identifier: "MainVC")
-        }
+        segueViewController(identifier: "MainVC")
     }
     
     override func viewWillAppear(_ animated: Bool) {

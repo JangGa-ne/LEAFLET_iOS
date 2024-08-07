@@ -26,16 +26,22 @@ func requestSignIn(store_id: String = "test123", store_pw: String = "test123", c
     }
 }
 
-func requestGetStore(limit: Int = 10000, completionHandler: @escaping ((Int) -> Void)) {
+func requestGetStore(limit: Int = 10000, category_name: String = "", completionHandler: @escaping (([StoreData], Int) -> Void)) {
     
-    Firestore.firestore().collection("store").limit(to: limit).getDocuments { responses, error in
+    var StoreArray: [StoreData] = []
+    var ref: Query = Firestore.firestore().collection("store").limit(to: limit)
+    if category_name != "" {
+        ref = ref.whereField("store_category", isEqualTo: category_name)
+    }
+    
+    ref.getDocuments { responses, error in
         if error == nil {
             responses?.documents.forEach { doc in
                 StoreArray.append(setStore(storeDict: doc.data()))
-            }; completionHandler(200)
+            }; completionHandler(StoreArray, 200)
         } else {
             print(error?.localizedDescription as Any)
-            completionHandler(500)
+            completionHandler([], 500)
         }
     }
 }

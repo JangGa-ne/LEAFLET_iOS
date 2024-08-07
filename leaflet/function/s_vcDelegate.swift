@@ -11,6 +11,7 @@ var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 /// Common
 weak var SplashVCdelegate: SplashVC? = nil
 weak var SignInVCdelegate: SignInVC? = nil
+weak var MainVCdelegate: MainVC? = nil
 weak var HomeVCdelegate: HomeVC? = nil
 weak var StoreDetailVCdelegate: StoreDetailVC? = nil
 weak var StoreUploadVCdelegate: StoreUploadVC? = nil

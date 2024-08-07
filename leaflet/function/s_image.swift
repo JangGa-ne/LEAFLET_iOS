@@ -12,6 +12,7 @@ import ImageSlideshow
 import BSImagePicker
 import Photos
 import Kingfisher
+import WebKit
 import Alamofire
 
 func memoryCheck(delete: Bool = false) {
@@ -161,6 +162,19 @@ func setNuke(imageView: UIImageView, imageUrl: String, placeholder: UIImage = UI
     } else {
         imageView.image = UIImage()
     }
+}
+
+func setGifImage(view: UIView, imageName: String) {
+    
+    guard let path = Bundle.main.path(forResource: "korea", ofType: "gif") else { return }
+    let url = URL(fileURLWithPath: path)
+    
+    let webView = WKWebView(frame: view.bounds)
+    view.addSubview(webView)
+    
+    webView.backgroundColor = .clear
+    webView.isOpaque = false
+    webView.loadFileURL(url, allowingReadAccessTo: url)
 }
 
 func setDownsampledImage(imageView: UIImageView, imageUrl: String, placeholder: UIImage = UIImage(), cornerRadius: CGFloat = 0, contentMode: UIView.ContentMode = .scaleAspectFill) {
