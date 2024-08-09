@@ -40,7 +40,7 @@ class SplashVC: UIViewController {
 //            self.segueViewController(identifier: "MainVC")
 //        }
         
-        segueViewController(identifier: "MainVC")
+        segueTabBarController(identifier: "MainTBC", idx: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -95,7 +95,7 @@ func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
     return newImage ?? image
 }
 
-func setImageSlideShew(imageView: ImageSlideshow, imageUrls: [String], cornerRadius: CGFloat = 0, contentMode: UIView.ContentMode = .scaleAspectFill, completionHandler: (() -> Void)?) {
+func setImageSlideShew(imageView: ImageSlideshow, imageUrls: [String] = [], imageNames: [String] = [], cornerRadius: CGFloat = 0, contentMode: UIView.ContentMode = .scaleAspectFill, completionHandler: (() -> Void)?) {
     
     SDWebImagePrefetcher.shared.prefetchURLs(imageUrls.compactMap { URL(string: $0) })
     
@@ -113,21 +113,37 @@ func setImageSlideShew(imageView: ImageSlideshow, imageUrls: [String], cornerRad
     imageView.layoutSubviews()
     
     var inputs: [ImageSource] = []
-    imageUrls.forEach { imageUrl in
-        inputs.append(ImageSource(image: UIImage()))
-    }
-
-    imageUrls.enumerated().forEach { i, imageUrl in
-        guard let url = URL(string: imageUrl) else { completionHandler?(); return }
-        SDWebImageManager.shared.loadImage(with: url, options: [.highPriority, .retryFailed, .scaleDownLargeImages], context: [:], progress: nil) { (image, _, _, _, _, _) in
-            if let image = image { inputs[i] = ImageSource(image: image) }
-            DispatchQueue.main.async {
-                imageView.setImageInputs(inputs); indicator.stopAnimating(); indicator.removeFromSuperview(); completionHandler?()
+    
+    if imageUrls.count > 0 {
+        
+        dispatchGroup.enter()
+        imageUrls.forEach { imageUrl in
+            inputs.append(ImageSource(image: UIImage()))
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        imageUrls.enumerated().forEach { i, imageUrl in
+            guard let url = URL(string: imageUrl) else { dispatchGroup.leave(); completionHandler?(); return }
+            SDWebImageManager.shared.loadImage(with: url, options: [.highPriority, .retryFailed, .scaleDownLargeImages], context: [:], progress: nil) { (image, _, _, _, _, _) in
+                if let image = image { inputs[i] = ImageSource(image: image) }
+                imageView.setImageInputs(inputs)
+                dispatchGroup.leave()
             }
+        }
+    } else if imageNames.count > 0 {
+        
+        dispatchGroup.enter()
+        imageNames.forEach { imageName in
+            inputs.append(ImageSource(image: UIImage(named: imageName) ?? UIImage()))
+            imageView.setImageInputs(inputs)
+            dispatchGroup.leave()
         }
     }
     
-    if imageUrls.count == 0 { indicator.stopAnimating(); indicator.removeFromSuperview(); completionHandler?() }
+    dispatchGroup.notify(queue: .main) {
+        indicator.stopAnimating(); indicator.removeFromSuperview(); completionHandler?()
+    }
 }
 
 func preheatImages(urls: [URL]) {

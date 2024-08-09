@@ -47,6 +47,8 @@
 		3FBCBCB02C466C5900320D73 /* s_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCBCA12C466C5900320D73 /* s_time.swift */; };
 		3FBCBCB12C466C5900320D73 /* s_vcDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCBCA22C466C5900320D73 /* s_vcDelegate.swift */; };
 		3FBCBCB22C466C5900320D73 /* s_vcNavigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBCBCA32C466C5900320D73 /* s_vcNavigate.swift */; };
+		3FC79E492C64A0D4000813A6 /* MarketListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC79E482C64A0D4000813A6 /* MarketListVC.swift */; };
+		3FC79E4B2C64B017000813A6 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC79E4A2C64B017000813A6 /* MainTBC.swift */; };
 		3FD264FB2C58C57000C2A5F3 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD264FA2C58C57000C2A5F3 /* CategoryVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		3FBCBCA12C466C5900320D73 /* s_time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = s_time.swift; sourceTree = "<group>"; };
 		3FBCBCA22C466C5900320D73 /* s_vcDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = s_vcDelegate.swift; sourceTree = "<group>"; };
 		3FBCBCA32C466C5900320D73 /* s_vcNavigate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = s_vcNavigate.swift; sourceTree = "<group>"; };
+		3FC79E482C64A0D4000813A6 /* MarketListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListVC.swift; sourceTree = "<group>"; };
+		3FC79E4A2C64B017000813A6 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		3FD264FA2C58C57000C2A5F3 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		9E9D138ED23E308BD23134EC /* Pods_leaflet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_leaflet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DAE846682C64ECF44EB558 /* Pods-leaflet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leaflet.debug.xcconfig"; path = "Target Support Files/Pods-leaflet/Pods-leaflet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,7 +121,9 @@
 				3F415E7E2C465F3700773588 /* SignInVC.swift */,
 				3F415E7F2C465F3700773588 /* HomeVC.swift */,
 				3F4FCA8C2C6327A100D3D88B /* MainVC.swift */,
+				3FC79E4A2C64B017000813A6 /* MainTBC.swift */,
 				3F8121C12C63577500EB5890 /* MapVC.swift */,
+				3FC79E482C64A0D4000813A6 /* MarketListVC.swift */,
 				3F987F262C47C00B00E07F8C /* StoreDetailVC.swift */,
 				3F2F8B062C4E24EB0066A5DF /* StoreInfoVC.swift */,
 				3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */,
@@ -364,6 +370,8 @@
 				3F987F252C47BFF700E07F8C /* UISegmentedControlView.swift in Sources */,
 				3FBCBCA92C466C5900320D73 /* s_image.swift in Sources */,
 				3F47837C2C57693000EB0611 /* TimeVC.swift in Sources */,
+				3FC79E492C64A0D4000813A6 /* MarketListVC.swift in Sources */,
+				3FC79E4B2C64B017000813A6 /* MainTBC.swift in Sources */,
 				3FBCBCB12C466C5900320D73 /* s_vcDelegate.swift in Sources */,
 				3F2F8B092C4E2D910066A5DF /* BasketVC.swift in Sources */,
 				3F987F232C47BFF700E07F8C /* UICustomSegmentedControl.swift in Sources */,
