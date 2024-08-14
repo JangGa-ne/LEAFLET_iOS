@@ -26,6 +26,7 @@
 		3F47837C2C57693000EB0611 /* TimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47837B2C57693000EB0611 /* TimeVC.swift */; };
 		3F4FCA8D2C6327A100D3D88B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FCA8C2C6327A100D3D88B /* MainVC.swift */; };
 		3F4FCA932C633E7A00D3D88B /* korea.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3F4FCA922C633E7A00D3D88B /* korea.gif */; };
+		3F65B6BA2C69C587007ED817 /* MypageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F65B6B92C69C587007ED817 /* MypageVC.swift */; };
 		3F8121C22C63577500EB5890 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8121C12C63577500EB5890 /* MapVC.swift */; };
 		3F8498982C4F8F630055FE27 /* StoreUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */; };
 		3F987F222C47BFF700E07F8C /* UIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F987F1D2C47BFF700E07F8C /* UIBaseView.swift */; };
@@ -73,6 +74,7 @@
 		3F47837B2C57693000EB0611 /* TimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeVC.swift; sourceTree = "<group>"; };
 		3F4FCA8C2C6327A100D3D88B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		3F4FCA922C633E7A00D3D88B /* korea.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = korea.gif; sourceTree = "<group>"; };
+		3F65B6B92C69C587007ED817 /* MypageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageVC.swift; sourceTree = "<group>"; };
 		3F8121C12C63577500EB5890 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUploadVC.swift; sourceTree = "<group>"; };
 		3F987F1D2C47BFF700E07F8C /* UIBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBaseView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				3FC79E4A2C64B017000813A6 /* MainTBC.swift */,
 				3F8121C12C63577500EB5890 /* MapVC.swift */,
 				3FC79E482C64A0D4000813A6 /* MarketListVC.swift */,
+				3F65B6B92C69C587007ED817 /* MypageVC.swift */,
 				3F987F262C47C00B00E07F8C /* StoreDetailVC.swift */,
 				3F2F8B062C4E24EB0066A5DF /* StoreInfoVC.swift */,
 				3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */,
@@ -381,6 +384,7 @@
 				3F987F222C47BFF700E07F8C /* UIBaseView.swift in Sources */,
 				3F415E822C465F3800773588 /* PostObject.swift in Sources */,
 				3F415E2D2C465EC300773588 /* AppDelegate.swift in Sources */,
+				3F65B6BA2C69C587007ED817 /* MypageVC.swift in Sources */,
 				3F987F272C47C00B00E07F8C /* StoreDetailVC.swift in Sources */,
 				3F8121C22C63577500EB5890 /* MapVC.swift in Sources */,
 				3F987F242C47BFF700E07F8C /* UIGradientView.swift in Sources */,
