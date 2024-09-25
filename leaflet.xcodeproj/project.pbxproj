@@ -27,6 +27,7 @@
 		3F4FCA8D2C6327A100D3D88B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FCA8C2C6327A100D3D88B /* MainVC.swift */; };
 		3F4FCA932C633E7A00D3D88B /* korea.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3F4FCA922C633E7A00D3D88B /* korea.gif */; };
 		3F65B6BA2C69C587007ED817 /* MypageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F65B6B92C69C587007ED817 /* MypageVC.swift */; };
+		3F70AA0B2CA42EFB008D206C /* s_distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70AA0A2CA42EFB008D206C /* s_distance.swift */; };
 		3F8121C22C63577500EB5890 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8121C12C63577500EB5890 /* MapVC.swift */; };
 		3F8498982C4F8F630055FE27 /* StoreUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */; };
 		3F987F222C47BFF700E07F8C /* UIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F987F1D2C47BFF700E07F8C /* UIBaseView.swift */; };
@@ -76,6 +77,7 @@
 		3F4FCA8C2C6327A100D3D88B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		3F4FCA922C633E7A00D3D88B /* korea.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = korea.gif; sourceTree = "<group>"; };
 		3F65B6B92C69C587007ED817 /* MypageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageVC.swift; sourceTree = "<group>"; };
+		3F70AA0A2CA42EFB008D206C /* s_distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s_distance.swift; sourceTree = "<group>"; };
 		3F8121C12C63577500EB5890 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		3F8498972C4F8F630055FE27 /* StoreUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUploadVC.swift; sourceTree = "<group>"; };
 		3F987F1D2C47BFF700E07F8C /* UIBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBaseView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				3FBCBCA12C466C5900320D73 /* s_time.swift */,
 				3FBCBCA22C466C5900320D73 /* s_vcDelegate.swift */,
 				3FBCBCA32C466C5900320D73 /* s_vcNavigate.swift */,
+				3F70AA0A2CA42EFB008D206C /* s_distance.swift */,
 			);
 			path = function;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				3FBCBCAC2C466C5900320D73 /* s_noticeAlert.swift in Sources */,
 				3FBCBCA62C466C5900320D73 /* s_base.swift in Sources */,
 				3FBCBCB22C466C5900320D73 /* s_vcNavigate.swift in Sources */,
+				3F70AA0B2CA42EFB008D206C /* s_distance.swift in Sources */,
 				3F415E852C465F3800773588 /* SplashVC.swift in Sources */,
 				3FBCBCAA2C466C5900320D73 /* s_keyboard.swift in Sources */,
 				3FBCBCAE2C466C5900320D73 /* s_regularExpression.swift in Sources */,

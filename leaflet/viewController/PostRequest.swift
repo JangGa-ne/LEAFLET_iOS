@@ -89,3 +89,19 @@ func requestCounting() {
         "count_scrap": 0,
     ]
 }
+
+func requestMarketList(completionHandler: @escaping (([StoreData], Int) -> Void)) {
+    
+    var StoreArray: [StoreData] = []
+    
+    Firestore.firestore().collection("store").getDocuments { responses, error in
+        if error == nil, let responses = responses {
+            responses.documents.forEach { response in
+                StoreArray.append(setStore(storeDict: response.data()))
+            }; completionHandler(StoreArray, 200)
+        } else {
+            print(error?.localizedDescription as Any)
+            completionHandler(StoreArray, 500)
+        }
+    }
+}

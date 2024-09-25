@@ -177,7 +177,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return (section_title[section] == "") ? .zero : 50
+        return (section_title[section] == "") ? .zero : 70
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

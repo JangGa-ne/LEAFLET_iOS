@@ -74,7 +74,7 @@ class StoreUploadVC: UIViewController {
         ownerName_tf.text = StoreObject.owner_name
         storeRegNum_tf.text = StoreObject.store_reg_num
         storeTel_tf.text = StoreObject.store_tel
-        storeAddress_tf.text = StoreObject.store_address
+        storeAddress_tf.text = StoreObject.store_address1
         category_btn.setTitle(StoreObject.store_category, for: .normal)
         category_btn.addTarget(self, action: #selector(category_btn(_:)), for: .touchUpInside)
         

@@ -10,7 +10,10 @@ import ImageSlideshow
 
 class MarketListTC: UITableViewCell {
     
-    
+    @IBOutlet weak var storeMain_img: UIImageView!
+    @IBOutlet weak var storeName_label: UILabel!
+    @IBOutlet weak var storeRating_label: UILabel!
+    @IBOutlet weak var storeDistance_label: UILabel!
 }
 
 class MarketListVC: UIViewController {
@@ -18,6 +21,8 @@ class MarketListVC: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    var StoreArray: [StoreData] = []
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var ad_isv: ImageSlideshow!
@@ -35,7 +40,13 @@ class MarketListVC: UIViewController {
         tableView.separatorStyle = .none
         tableView.contentInset = .zero
         tableView.delegate = self; tableView.dataSource = self
-        tableView_height.constant = CGFloat(100*110)
+        tableView_height.constant = CGFloat(StoreArray.count*110)
+        
+        requestMarketList { array, status in
+            self.StoreArray = array
+            self.tableView.reloadData()
+            self.tableView_height.constant = CGFloat(array.count*110)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,12 +59,32 @@ class MarketListVC: UIViewController {
 extension MarketListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        if StoreArray.count > 0 { return StoreArray.count } else { return .zero }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? MarketListTC else { return }
+        
+        let data = StoreArray[indexPath.row]
+        setKingfisher(imageView: cell.storeMain_img, imageUrl: data.img_store_main, cornerRadius: 10)
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? MarketListTC, StoreArray.count > 0 else { return }
+        
+        cancelKingfisher(imageView: cell.storeMain_img)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let data = StoreArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "MarketListTC", for: indexPath) as! MarketListTC
+        
+        cell.storeName_label.text = data.store_name
+        cell.storeRating_label.text = "5.0"
+        cell.storeDistance_label.text = setDistance(lat: 37.662610, lng: 126.768678, target_lat: data.store_lat, target_lng: data.store_lng)
         
         return cell
     }

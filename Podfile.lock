@@ -1140,9 +1140,9 @@ PODS:
   - PanModal (1.2.7)
   - PromisesObjC (2.4.0)
   - RecaptchaInterop (100.0.0)
-  - SDWebImage (5.19.4):
-    - SDWebImage/Core (= 5.19.4)
-  - SDWebImage/Core (5.19.4)
+  - SDWebImage (5.19.7):
+    - SDWebImage/Core (= 5.19.7)
+  - SDWebImage/Core (5.19.7)
 
 DEPENDENCIES:
   - Alamofire (= 5.1)
@@ -1225,8 +1225,8 @@ SPEC CHECKSUMS:
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  SDWebImage: 066c47b573f408f18caa467d71deace7c0f8280d
+  SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
 
-PODFILE CHECKSUM: 05ebe08bc1583d59300f394f3500d78be88ad191
+PODFILE CHECKSUM: 46a37a90373c1e9f8dd7fd9416e67ce01efaaad1
 
 COCOAPODS: 1.15.2

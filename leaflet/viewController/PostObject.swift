@@ -40,7 +40,9 @@ class StoreData {
     var store_tel: String = ""
     var store_reg_num: String = ""
     var store_opening: String = ""
-    var store_address: String = ""
+    var store_address1: String = ""
+    var store_address2: String = ""
+    var store_detail: String = ""
     var store_lat: Double = 0.0
     var store_lng: Double = 0.0
     var owner_name: String = ""
@@ -70,7 +72,9 @@ func setStore(storeDict: [String: Any]) -> StoreData {
     storeValue.store_tel = storeDict["store_tel"] as? String ?? ""
     storeValue.store_reg_num = storeDict["store_reg_num"] as? String ?? ""
     storeValue.store_opening = storeDict["store_opening"] as? String ?? ""
-    storeValue.store_address = storeDict["store_address"] as? String ?? ""
+    storeValue.store_address1 = storeDict["store_address1"] as? String ?? ""
+    storeValue.store_address2 = storeDict["store_address2"] as? String ?? ""
+    storeValue.store_detail = storeDict["store_detail"] as? String ?? ""
     storeValue.store_lat = storeDict["store_lat"] as? Double ?? 0.0
     storeValue.store_lng = storeDict["store_lng"] as? Double ?? 0.0
     storeValue.owner_name = storeDict["owner_name"] as? String ?? ""
